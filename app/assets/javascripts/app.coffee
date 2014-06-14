@@ -1,0 +1,1 @@
+speakerFeedbackApp = angular.module('speakerFeedbackApp', []);
