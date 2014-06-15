@@ -6,4 +6,8 @@ object Application extends Controller {
 
   def index = TODO
 
+  def answer = Action {
+    Ok(views.html.answer())
+  }
+
 }

@@ -1,0 +1,16 @@
+
+@main("Answer") {
+
+<body ng-controller="EnqueteCtrl">
+
+    <h1>{{enquete.title}}</h1>
+
+    <p>{{enquete.description}}</p>
+
+    <div ng-repeat="question in enquete.questions">
+        {{question.description}}
+    </div>
+
+</body>
+
+}
