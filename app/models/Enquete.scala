@@ -5,5 +5,5 @@ package models
  */
 case class Enquete(id: String,
                    title: String,
-                   description: Option[String],
+                   description: String,
                    questions: Seq[Question])

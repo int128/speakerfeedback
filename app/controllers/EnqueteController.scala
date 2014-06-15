@@ -11,7 +11,11 @@ object EnqueteController extends Controller {
   implicit val enqueteWrites = Json.writes[Enquete]
 
   def findById(id: String) = Action {
-    Ok(Json.toJson(Enquete(id, "title1", Some("desc1"), Seq())))
+    Ok(Json.toJson(
+      Enquete(id, "title1", "desc1", Seq(
+        Question("question1", "question-desc1"),
+        Question("question2", "question-desc2")
+      ))))
   }
 
 }
