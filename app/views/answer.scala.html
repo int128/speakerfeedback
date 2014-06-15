@@ -3,12 +3,15 @@
 
 <body ng-controller="EnqueteCtrl">
 
-    <h1>{{enquete.title}}</h1>
+    <div class="container">
+        <div class="page-header">
+            <h1>{{enquete.title}}</h1>
+            <p class="lead">{{enquete.description}}</p>
+        </div>
 
-    <p>{{enquete.description}}</p>
-
-    <div ng-repeat="question in enquete.questions">
-        {{question.description}}
+        <div ng-repeat="question in enquete.questions">
+            {{question.description}}
+        </div>
     </div>
 
 </body>
