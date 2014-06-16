@@ -10,6 +10,10 @@ object EnqueteController extends Controller {
 
   implicit val enqueteWrites = Json.writes[Enquete]
 
+  implicit val questionAnswerReads = Json.reads[QuestionAnswer]
+
+  implicit val enqueteAnswerReads = Json.reads[EnqueteAnswer]
+
   def findById(id: String) = Action {
     Ok(Json.toJson(
       Enquete(id, "title1", "desc1", Seq(
@@ -18,6 +22,15 @@ object EnqueteController extends Controller {
       ))))
   }
 
-  def answerTo(id: String) = TODO
+  def answerTo(id: String) = Action(BodyParsers.parse.json) { request =>
+    request.body.validate[EnqueteAnswer].fold(
+      errors => {
+        BadRequest(JsError.toFlatJson(errors))
+      },
+      answer => {
+        Ok(Json.obj("message" -> "accept"))
+      }
+    )
+  }
 
 }

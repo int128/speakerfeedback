@@ -3,6 +3,5 @@ package models
 /**
  * An answer to the enquete.
  */
-case class EnqueteAnswer(id: Int,
-                         enqueteId: Int,
-                         answers: Seq[QuestionAnswer])
+case class EnqueteAnswer(enqueteId: String,
+                         questions: Seq[QuestionAnswer])
