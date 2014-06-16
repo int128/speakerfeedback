@@ -9,9 +9,21 @@
             <p class="lead">{{enquete.description}}</p>
         </div>
 
-        <div ng-repeat="question in enquete.questions">
-            {{question.description}}
-        </div>
+        <form role="form">
+            <div ng-repeat="question in enquete.questions">
+                <div class="form-group">
+                    <p>{{question.description}}</p>
+                    <textarea ng-model="question.answer"
+                              placeholder="Answer"
+                              rows="3"
+                              class="form-control"></textarea>
+                </div>
+            </div>
+
+            <button type="button"
+                    ng-click="submitAnswer(enquete)"
+                    class="btn btn-default">Submit</button>
+        </form>
     </div>
 
 </body>

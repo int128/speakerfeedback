@@ -18,4 +18,6 @@ object EnqueteController extends Controller {
       ))))
   }
 
+  def answerTo(id: String) = TODO
+
 }
