@@ -26,7 +26,13 @@ object EnqueteController extends Controller {
         BadRequest(JsError.toFlatJson(errors))
       },
       answers => {
-        Ok(Json.obj("message" -> "accept"))
+        request.cookies.get(Application.UUID_NAME) match {
+          case Some(Cookie(_, uuid, _, _, _, _, _)) if uuid.length == Application.UUID_LENGTH =>
+            EnqueteAnswer(uuid, id, answers)
+            Ok("Accepted")
+          case _ =>
+            BadRequest("No UUID cookie found")
+        }
       }
     )
   }
